@@ -1,0 +1,240 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://sprites/boulder01.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://scripts/GrassLevel.gd" type="Script" id=4]
+[ext_resource path="res://sprites/mountain01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/asset-background.png" type="Texture" id=6]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/asset-trees.png" type="Texture" id=8]
+[ext_resource path="res://sprites/asset-sun.png" type="Texture" id=9]
+[ext_resource path="res://sprites/asset-background-sky.png" type="Texture" id=10]
+[ext_resource path="res://sprites/asset-grass.png" type="Texture" id=11]
+[ext_resource path="res://sprites/asset-floor.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Cloud.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	COLOR.r += 0.12;
+	COLOR.g += 0.14;
+	COLOR.b += 0.16;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "asset-floor.png 0"
+0/texture = ExtResource( 13 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "asset-floor.png 1"
+1/texture = ExtResource( 13 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 8, 0, 8, 8 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "asset-floor.png 2"
+2/texture = ExtResource( 13 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 16, 0, 8, 8 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 5 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[node name="GrassLevel" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Parallax" type="ParallaxBackground" parent="."]
+
+[node name="MSky01" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.05, 1 )
+motion_mirroring = Vector2( 256, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sky" type="Sprite" parent="Parallax/MSky01"]
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Sun" type="Sprite" parent="Parallax/MSky01"]
+position = Vector2( 81, 19 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="MSky02" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 256, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Cloud" parent="Parallax/MSky02" instance=ExtResource( 14 )]
+position = Vector2( 0, 24 )
+
+[node name="Cloud2" parent="Parallax/MSky02" instance=ExtResource( 14 )]
+position = Vector2( 135, 24 )
+cloud_texture = 1
+
+[node name="N01" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.6, 1 )
+
+[node name="Mountain" type="Sprite" parent="Parallax/N01"]
+light_mask = 3
+material = SubResource( 2 )
+position = Vector2( -112, -8 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="MGround03" type="ParallaxLayer" parent="Parallax"]
+motion_mirroring = Vector2( 256, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Ground" type="Sprite" parent="Parallax/MGround03"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="MGround01" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 320, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Tree" type="Sprite" parent="Parallax/MGround01"]
+position = Vector2( 224, 56 )
+texture = ExtResource( 8 )
+hframes = 2
+
+[node name="Tree2" type="Sprite" parent="Parallax/MGround01"]
+position = Vector2( 72, 56 )
+texture = ExtResource( 8 )
+hframes = 2
+frame = 1
+
+[node name="MGround02" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.85, 1 )
+motion_mirroring = Vector2( 256, 0 )
+
+[node name="Grass1" type="Sprite" parent="Parallax/MGround02"]
+position = Vector2( 18, 88 )
+texture = ExtResource( 11 )
+centered = false
+hframes = 2
+
+[node name="Grass2" type="Sprite" parent="Parallax/MGround02"]
+position = Vector2( 123, 88 )
+texture = ExtResource( 11 )
+centered = false
+hframes = 2
+frame = 1
+
+[node name="Grass3" type="Sprite" parent="Parallax/MGround02"]
+position = Vector2( 204, 88 )
+texture = ExtResource( 11 )
+centered = false
+hframes = 2
+
+[node name="Boulder" type="Sprite" parent="."]
+position = Vector2( 0, 64 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 3, -3 )
+
+[node name="Floor" type="TileMap" parent="."]
+position = Vector2( 0, -2 )
+tile_set = SubResource( 6 )
+cell_size = Vector2( 8, 8 )
+format = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 128, 72 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Camera"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 80 )
+
+[node name="Sprite" parent="Player" index="0"]
+position = Vector2( 32, 0 )
+frame = 0
+
+[node name="AnimationTree" parent="Player" index="3"]
+parameters/playback = SubResource( 7 )
+
+[node name="GUI" parent="." instance=ExtResource( 7 )]
+
+[editable path="Player"]
