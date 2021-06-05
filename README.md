@@ -35,11 +35,29 @@ Every turn, the characters perform their action twice: once in the beginning, ag
 
 #### 0.1.2 (NEXT)
 
-**0.1.2** will have the same feature goals as **0.1.1**, but actually working this time.
+**0.1.2** will have the same feature goals as **0.1.1**, but actually working this time. Manually reorganizing is creating dependency issues & parser errors, so will be rebuilding the game from ground up, revising the slapdash parts of code. In other words, exactly the same thing as 0.1.1, but with better structure. Ideally, no difference visually (apart from fixed bugs).
+
+**Checklist:**
+* Start from scratch with an organized folder tree structure.
+* Reorganize entities in classes (Level, Character...)
+* Revamp ESC menu & add content
+* Add new GUI texts
+* Randomize bird spawning
+
+**Notes:**  
+Currently, CombatTurn is instanced by the level and attached to each character node. Character entities should solve that themselves (in class definition).
 
 #### 0.1.3
 
 0.1.3 will build further upon the "feel" of the game: polishing graphics, adding sound, enhancing the experience, but same content.
+
+**Checklist:**
+* Add "tutorial screen" after splash screen
+* Add scene switcher transitions
+* Dialog boxes that take facing_dir into account (a second NinePatch)
+
+**Notes:**  
+Levels can be organized as such: Level-Grass, Level-Dungeon... whereas the other "informative" levels can be called Cutscene-Tutorial, Cutscene-Intro...
 
 #### 0.1.4
 

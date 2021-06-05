@@ -1,10 +1,10 @@
 extends Node
 
 const MOVE_INPUTS = {"ui_right": 1, "ui_left": -1}
-const TILE_SIZE = 8
-const ROOM_SIZE = 10
-const FLOOR_Y = 12
-const ROOM_MAX = 12
+const TILE_SIZE := 8
+const ROOM_SIZE := 10
+const FLOOR_Y := 12
+const ROOM_MAX := 12
 enum STATES {INACTIVE, IDLE, PROMPT, COMBAT}
 
 # nodes and resources

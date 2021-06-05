@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/asset-player.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=1]
 resource_name = "Action"
 length = 0.5
 tracks/0/type = "value"
@@ -19,8 +19,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Activate"
+[sub_resource type="Animation" id=2]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -35,7 +34,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -50,8 +49,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "IdleBack"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -66,7 +64,7 @@ tracks/0/keys = {
 "values": [ 18 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -82,7 +80,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -98,8 +96,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "MoveBack"
+[sub_resource type="Animation" id=7]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -115,7 +112,7 @@ tracks/0/keys = {
 "values": [ 19, 20, 21, 22, 23 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -130,8 +127,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "TurnForward"
+[sub_resource type="Animation" id=9]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -146,89 +142,89 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27, 28, 29 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Action"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Activate"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "IdleBack"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Inactive"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Move"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "MoveBack"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "TurnBack"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "TurnForward"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=27]
-states/Action/node = SubResource( 30 )
+[sub_resource type="AnimationNodeStateMachine" id=31]
+states/Action/node = SubResource( 10 )
 states/Action/position = Vector2( 598, 285 )
-states/Activate/node = SubResource( 9 )
+states/Activate/node = SubResource( 11 )
 states/Activate/position = Vector2( 642, 181 )
-states/Idle/node = SubResource( 10 )
+states/Idle/node = SubResource( 12 )
 states/Idle/position = Vector2( 477, 181 )
-states/IdleBack/node = SubResource( 11 )
+states/IdleBack/node = SubResource( 13 )
 states/IdleBack/position = Vector2( 169, 285 )
-states/Inactive/node = SubResource( 12 )
+states/Inactive/node = SubResource( 14 )
 states/Inactive/position = Vector2( 823, 181 )
-states/Move/node = SubResource( 13 )
+states/Move/node = SubResource( 15 )
 states/Move/position = Vector2( 477, 73 )
-states/MoveBack/node = SubResource( 14 )
+states/MoveBack/node = SubResource( 16 )
 states/MoveBack/position = Vector2( -44, 285 )
-states/TurnBack/node = SubResource( 15 )
+states/TurnBack/node = SubResource( 17 )
 states/TurnBack/position = Vector2( 372, 285 )
-states/TurnForward/node = SubResource( 16 )
+states/TurnForward/node = SubResource( 18 )
 states/TurnForward/position = Vector2( 169, 181 )
-transitions = [ "Inactive", "Activate", SubResource( 17 ), "Activate", "Idle", SubResource( 18 ), "Idle", "Move", SubResource( 19 ), "Move", "Idle", SubResource( 20 ), "Idle", "TurnBack", SubResource( 21 ), "TurnBack", "IdleBack", SubResource( 22 ), "IdleBack", "MoveBack", SubResource( 23 ), "MoveBack", "IdleBack", SubResource( 24 ), "IdleBack", "TurnForward", SubResource( 25 ), "TurnForward", "Idle", SubResource( 26 ), "Idle", "Action", SubResource( 31 ), "Action", "Idle", SubResource( 32 ) ]
+transitions = [ "Inactive", "Activate", SubResource( 19 ), "Activate", "Idle", SubResource( 20 ), "Idle", "Move", SubResource( 21 ), "Move", "Idle", SubResource( 22 ), "Idle", "TurnBack", SubResource( 23 ), "TurnBack", "IdleBack", SubResource( 24 ), "IdleBack", "MoveBack", SubResource( 25 ), "MoveBack", "IdleBack", SubResource( 26 ), "IdleBack", "TurnForward", SubResource( 27 ), "TurnForward", "Idle", SubResource( 28 ), "Idle", "Action", SubResource( 29 ), "Action", "Idle", SubResource( 30 ) ]
 start_node = "Inactive"
 graph_offset = Vector2( -157, 19.261 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=28]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=32]
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
@@ -237,26 +233,25 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 centered = false
 hframes = 30
-frame = 6
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Action = SubResource( 29 )
-anims/Activate = SubResource( 1 )
-anims/Idle = SubResource( 2 )
-anims/IdleBack = SubResource( 3 )
-anims/Inactive = SubResource( 4 )
-anims/Move = SubResource( 5 )
-anims/MoveBack = SubResource( 6 )
-anims/TurnBack = SubResource( 7 )
-anims/TurnForward = SubResource( 8 )
+anims/Action = SubResource( 1 )
+anims/Activate = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/IdleBack = SubResource( 4 )
+anims/Inactive = SubResource( 5 )
+anims/Move = SubResource( 6 )
+anims/MoveBack = SubResource( 7 )
+anims/TurnBack = SubResource( 8 )
+anims/TurnForward = SubResource( 9 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 27 )
+tree_root = SubResource( 31 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 28 )
+parameters/playback = SubResource( 32 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

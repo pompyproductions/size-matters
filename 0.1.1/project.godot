@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Size Matters"
+config/name="Size Matters 0.1.1"
 config/description="To consume, or not to consume."
 run/main_scene="res://scenes/Main.tscn"
 boot_splash/image="res://sprites/splash-bg.png"

@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Level_Grass.gd" type="Script" id=1]
+[ext_resource path="res://02_Levels/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://00_Assets/Textures/env_sun01.png" type="Texture" id=3]
+[ext_resource path="res://00_Assets/Textures/bg_sky01.png" type="Texture" id=4]
+[ext_resource path="res://00_Assets/Textures/tileset_grass.png" type="Texture" id=5]
+[ext_resource path="res://00_Assets/Textures/bg_ground01.png" type="Texture" id=6]
+[ext_resource path="res://00_Assets/Textures/env_boulder02.png" type="Texture" id=7]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	if (COLOR.rgb != vec3(49, 52, 50)) {
+		COLOR.r += 0.12;
+		COLOR.g += 0.14;
+		COLOR.b += 0.16;
+	}
+
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
+[sub_resource type="TileSet" id=1]
+0/name = "tileset_grass.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tileset_grass.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 8, 0, 8, 8 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tileset_grass.png 2"
+2/texture = ExtResource( 5 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 16, 0, 8, 8 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[node name="LevelGrass" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="Sky" type="ParallaxLayer" parent="Parallax" index="0"]
+motion_scale = Vector2( 0.05, 1 )
+
+[node name="Sky" type="Sprite" parent="Parallax/Sky" index="0"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="Parallax/Sky" index="1"]
+position = Vector2( 77, 23 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="Parallax" index="1"]
+
+[node name="Sprite" type="Sprite" parent="Parallax/Ground" index="0"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Env01" type="ParallaxLayer" parent="Parallax" index="2"]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="Mountain" type="Sprite" parent="Parallax/Env01" index="0"]
+material = SubResource( 3 )
+position = Vector2( 24, 52 )
+texture = ExtResource( 7 )
+
+[node name="Env02" type="ParallaxLayer" parent="Parallax" index="3"]
+motion_scale = Vector2( 0.6, 1 )
+
+[node name="Env03" type="ParallaxLayer" parent="Parallax" index="4"]
+
+[node name="Env04" type="ParallaxLayer" parent="Parallax" index="5"]
+
+[node name="Floor" parent="." index="2"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )

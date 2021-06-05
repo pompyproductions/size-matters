@@ -93,7 +93,6 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 centered = false
 hframes = 9
-frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Action = SubResource( 1 )
